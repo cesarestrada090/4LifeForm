@@ -10,13 +10,28 @@ if(isset($_POST['enviar'])){
 	$email = $_POST['email'];
 	$telefono = $_POST['telefono'];
 	$ciudad = $_POST['ciudad'];
-	$pais = $_POST['direccion'];
+	$direccion = $_POST['direccion'];
 	$mensaje = $_POST['mensaje'];
         
-        $checkboxTienda = $_POST['mensaje'];
-        $checkboxDelivery = $_POST['mensaje'];
-        $checkboxDistribuidor = $_POST['mensaje'];
-
+        if(isset($_POST['checkboxTienda'])){
+            $checkboxTienda=1;
+        }
+        else{
+            $checkboxTienda=0;
+        }
+        if(isset($_POST['checkboxDelivery'])){
+            $checkboxDelivery=1;
+        }
+        else{
+            $checkboxDelivery=0;
+        }
+        if(isset($_POST['checkboxDistribuidor'])){
+            $checkboxDistribuidor=1;
+        }
+        else{
+            $checkboxDistribuidor=0;
+        }
+        
 	
 	///Validamos del lado del servidor que el nombre y el email no estén vacios
 	if($nombre == ''){
@@ -25,8 +40,8 @@ if(isset($_POST['enviar'])){
 	else if($email == ''){
 		echo "Debe ingresar su email";
 }else{
-	$para = "correo@tudominio.com";//Email al que se enviará
-	$asunto = "Contacto para su sitio web";//Puedes cambiar el asunto del mensaje desde aqui
+	$para = "cesarestrada090@gmail.com";//Email al que se enviará
+	$asunto = "Nuevo Cliente 4LIFE";//Puedes cambiar el asunto del mensaje desde aqui
 	//Este sería el cuerpo del mensaje
 	$mensaje = "
 		<table border='0' cellspacing='3' cellpadding='2'>
@@ -47,12 +62,24 @@ if(isset($_POST['enviar'])){
 			<td width='70%' align='left'>$ciudad</td>
 		  </tr>
 		  <tr>
-			<td width='30%' align='left' bgcolor='#f0efef'><strong>País:</strong></td>
-			<td width='70%' align='left'>$pais</td>
+			<td width='30%' align='left' bgcolor='#f0efef'><strong>Dirección:</strong></td>
+			<td width='70%' align='left'>$direccion</td>
 		  </tr>
 		  <tr>
 			<td align='left' bgcolor='#f0efef'><strong>Comentario:</strong></td>
 			<td align='left'>$mensaje</td>
+		  </tr>
+                  <tr>
+			<td align='left' bgcolor='#f0efef'><strong>Cliente:</strong></td>
+			<td align='left'>$checkboxTienda</td>
+		  </tr>
+                  <tr>
+			<td align='left' bgcolor='#f0efef'><strong>Delivery:</strong></td>
+			<td align='left'>$checkboxDelivery</td>
+		  </tr>
+                  <tr>
+			<td align='left' bgcolor='#f0efef'><strong>Distribuidor:</strong></td>
+			<td align='left'>$checkboxDistribuidor</td>
 		  </tr>
 	</table>	
 ";	
