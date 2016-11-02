@@ -40,7 +40,7 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
 
@@ -54,27 +54,27 @@
                 <div id="formulario">
                     <form class="form-horizontal" role="form" action="php/contacto.php" method="POST" id="contacto" title="Nombre">
                         <label for="nombre">Nombre Completo</label>
-                        <input class="form-control" value="aa" name="nombre" type="text" required="required" id="nombre" placeholder="nombre" tabindex="1" title="Nombre">
+                        <input class="form-control" value="" name="nombre" type="text" required="required" id="nombre" placeholder="nombre" tabindex="1" title="Nombre">
   
                         <label for="email">Email(opcional)</label>
-                        <input class="form-control" value="aa@ss.com" name="email" type="email" required="required" id="email" placeholder="email" tabindex="2" title="Email">
+                        <input class="form-control" value="" name="email" type="email" required="required" id="email" placeholder="email" tabindex="2" title="Email">
          
                         <label for="telefono">Teléfono</label>
-                        <input class="form-control" name="telefono" value="aa" type="text" id="telefono" placeholder="telefono" tabindex="3" title="Telefono">
+                        <input class="form-control" name="telefono" value="" type="text" id="telefono" placeholder="telefono" tabindex="3" title="Telefono">
                     
                         <label for="ciudad">Ciudad</label>
-                        <input class="form-control" name="ciudad" value="aa" type="text" id="ciudad" placeholder="ciudad" tabindex="4" title="ciudad">
+                        <input class="form-control" name="ciudad" value="" type="text" id="ciudad" placeholder="ciudad" tabindex="4" title="ciudad">
                   
                         <label for="direccion">Dirección Para Delivery(Opcional)</label>
                         <textarea class="form-control" name="direccion"  rows="2" id="direccion" style="min-width: 100%" placeholder="Dirección"></textarea>
                         <div class="checkbox checkbox-primary">
-                            <input name="checkboxTienda" type="checkbox" checked>Deseo Comprar los productos directamente en las tiendas de 4LIFE.
+                            <input name="checkboxTienda" id="checkboxTienda" type="checkbox" checked>Deseo Comprar los productos directamente en las tiendas de 4LIFE.
                         </div>
                         <div class="checkbox checkbox-success">
-                            <input name="checkboxDelivery" type="checkbox">Deseo Usar el Servicio de Delivery Gratuito.
+                            <input name="checkboxDelivery" id="checkboxDelivery" type="checkbox">Deseo Usar el Servicio de Delivery Gratuito.
                         </div>
                         <div class="checkbox checkbox-success">
-                            <input name="checkboxDistribuidor" type="checkbox">Deseo recibir información de 4Life para ser distribuidor autorizado.
+                            <input name="checkboxDistribuidor" id="checkboxDistribuidor" type="checkbox">Deseo recibir información de 4Life para ser distribuidor autorizado.
                         </div>
                         <label for="mensaje">Consulta o Duda</label>
                         <textarea class="form-control" name="mensaje" rows="4" id="mensaje" style="min-width: 100%" placeholder="Ingrese su duda o mensaje al vendedor"></textarea>
@@ -103,13 +103,13 @@
                     var ciudad = $("#ciudad").val();
                     var mensaje = $("#mensaje").val();
                     var direccion = $("#direccion").val();
-                    var checkboxTienda = $("#checkboxTienda").val();
-                    var checkboxDelivery = $("#checkboxDelivery").val();
-                    var checkboxDistribuidor = $("#checkboxDistribuidor").val();
+                    var checkboxTienda = $("#checkboxTienda").is(":checked");
+                    var checkboxDelivery = $("#checkboxDelivery").is(":checked");
+                    var checkboxDistribuidor = $("#checkboxDistribuidor").is(":checked");
                     $.ajax({
                         type: "POST",
                         url: "php/contacto.php",
-                        data: "name=" + nombre + "&email=" + email + "&telefono=" + telefono+ "&ciudad=" + ciudad + "&mensaje=" + mensaje+ "&direccion=" + direccion + "&checkboxTienda=" + checkboxTienda+ "&checkboxDelivery=" + checkboxDelivery + "&checkboxDistribuidor=" + checkboxDistribuidor,
+                        data: "nombre=" + nombre + "&email=" + email + "&telefono=" + telefono+ "&ciudad=" + ciudad + "&mensaje=" + mensaje+ "&direccion=" + direccion + "&checkboxTienda=" + checkboxTienda+ "&checkboxDelivery=" + checkboxDelivery + "&checkboxDistribuidor=" + checkboxDistribuidor,
                         success: function(text) {
                             if (text == "success") {
                                 
