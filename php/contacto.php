@@ -10,8 +10,13 @@ if(isset($_POST['enviar'])){
 	$email = $_POST['email'];
 	$telefono = $_POST['telefono'];
 	$ciudad = $_POST['ciudad'];
-	$pais = $_POST['pais'];
+	$pais = $_POST['direccion'];
 	$mensaje = $_POST['mensaje'];
+        
+        $checkboxTienda = $_POST['mensaje'];
+        $checkboxDelivery = $_POST['mensaje'];
+        $checkboxDistribuidor = $_POST['mensaje'];
+
 	
 	///Validamos del lado del servidor que el nombre y el email no estén vacios
 	if($nombre == ''){

@@ -79,11 +79,10 @@
                         <label for="mensaje">Consulta o Duda</label>
                         <textarea class="form-control" name="mensaje" rows="4" id="mensaje" style="min-width: 100%" placeholder="Ingrese su duda o mensaje al vendedor"></textarea>
                         <br>
-                        <input class="btn btn-primary" type="submit" name="enviar" tabindex="7" value="Enviar"><input type="reset" tabindex="8" class="btn btn-primary" value="Borrar">
-                        <input type="hidden" name="estado" value="1">
-                        
-                        <input class="btn btn-primary" data-toggle="modal" data-target="#myModal" type="button" name="enviar" tabindex="7" value="Envia2r"><input type="reset" tabindex="8" class="btn btn-primary" value="Borrar">
-                        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                        <input type="reset" tabindex="8" class="btn btn-primary" value="Borrar">
+
+                        <input class="btn btn-primary" data-toggle="modal" data-target="#myModal" type="submit" name="enviar" tabindex="7" value="Envia2r"><input type="reset" tabindex="8" class="btn btn-primary" value="Borrar">
+
 
                     </form>
                 </div>
@@ -94,10 +93,10 @@
             <script>
 
 
-                $('#thankyouModal').submit(function(e) {
+                $('#contacto').submit(function(e) {
                     e.preventDefault(); // don't submit multiple times
                     this.submit(); // use the native submit method of the form element
-                    $('#thankyouModal').modal('show'); //Open the model
+                    $('#myModal').modal('show'); //Open the model
                 });
             </script>
 
