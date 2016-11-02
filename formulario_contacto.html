@@ -37,7 +37,7 @@
                             <p>Te dejamos un video para que conozcas algo más de acerca de los productos de 4LIFE</p>
                             <iframe id="cartoonVideo" width="560" height="315" src="https://www.youtube.com/embed/qAJD_anNV-8" frameborder="0" allowfullscreen></iframe>
                             <br><br><p style="text-align: center; color:blue;" ><b>Te damos la bienvenida a 4LIFE. <br><br>¡GRACIAS POR CONFIAR EN NOSOTROS!</b></p>
-                        
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -95,8 +95,26 @@
 
                 $('#contacto').submit(function(e) {
                     e.preventDefault(); // don't submit multiple times
-                    this.submit(); // use the native submit method of the form element
-                    $('#myModal').modal('show'); //Open the model
+
+                    var nombre = $("#nombre").val();
+                    var email = $("#email").val();
+                    var telefono = $("#telefono").val();
+                    var ciudad = $("#ciudad").val();
+                    var mensaje = $("#mensaje").val();
+                    var direccion = $("#direccion").val();
+                    var checkboxTienda = $("#checkboxTienda").val();
+                    var checkboxDelivery = $("#checkboxDelivery").val();
+                    var checkboxDistribuidor = $("#checkboxDistribuidor").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "php/form-process.php",
+                        data: "name=" + nombre + "&email=" + email + "&telefono=" + telefono+ "&ciudad=" + ciudad + "&mensaje=" + mensaje+ "&direccion=" + direccion + "&checkboxTienda=" + checkboxTienda+ "&checkboxDelivery=" + checkboxDelivery + "&checkboxDistribuidor=" + checkboxDistribuidor,
+                        success: function(text) {
+                            if (text == "success") {
+                                
+                            }
+                        }
+                    });
                 });
             </script>
 

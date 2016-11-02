@@ -96,7 +96,7 @@ if(isset($_POST['enviar'])){
 		echo "<br />";
 		echo '<a href="../formulario_contacto.html">Volver</a>';
 	}else{
-		echo "Hubo un error en el envío inténtelo más tarde";
+		echo "success";
 	}
 }
 }	
