@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+    <html lang="es">
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Formulario de Contacto - Script Personal</title>
+
+            <!-- Bootstrap -->
+            <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+            <link href="css/bootstrap.min.css" rel="stylesheet">
+            <link href="css/estilos.css" rel="stylesheet">
+            <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+            <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            <!--[if lt IE 9]>
+              <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+              <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+            <![endif]-->
+        </head> 
+
+        <body>
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title" style="color:green;">Solicitud Realizada Exitosamente</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p  style="text-align: justify;" >Hemos enviado la información a la central, en unos minutos llegará tu código de cliente a tu correo con el que podras comprar en nuestros más de 10 locales autorizados en todo el Perú, en caso hayas solicitado ser distribuidor te llegará un correo adicional.</p>
+                            <p>Te dejamos un video para que conozcas algo más de acerca de los productos de 4LIFE</p>
+                            <iframe id="cartoonVideo" width="560" height="315" src="https://www.youtube.com/embed/qAJD_anNV-8" frameborder="0" allowfullscreen></iframe>
+                            <br><br><p style="text-align: center; color:blue;" ><b>Te damos la bienvenida a 4LIFE. <br><br>¡GRACIAS POR CONFIAR EN NOSOTROS!</b></p>
+                        
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="page-header">
+                    <h2 >¿Deseas ser uno de nuestros clientes?<br/> Completa el siguiente formulario para obtener tu código de comprador.</h23>
+                </div>
+                <div id="formulario">
+                    <form class="form-horizontal" role="form" action="php/contacto.php" method="POST" id="contacto" title="Nombre">
+                        <label for="nombre">Nombre Completo</label>
+                        <input class="form-control" value="aa" name="nombre" type="text" required="required" id="nombre" placeholder="nombre" tabindex="1" title="Nombre">
+                        <br>
+                        <label for="email">Email(opcional)</label>
+                        <input class="form-control" value="aa@ss.com" name="email" type="email" required="required" id="email" placeholder="email" tabindex="2" title="Email">
+                        <br>
+                        <label for="telefono">Teléfono</label>
+                        <input class="form-control" name="telefono" value="aa" type="text" id="telefono" placeholder="telefono" tabindex="3" title="Telefono">
+                        <br>
+                        <label for="ciudad">Ciudad</label>
+                        <input class="form-control" name="ciudad" value="aa" type="text" id="ciudad" placeholder="ciudad" tabindex="4" title="ciudad">
+                        <br>
+                        <label for="direccion">Dirección Para Delivery(Opcional)</label>
+                        <textarea class="form-control" name="direccion"  rows="2" id="direccion" style="min-width: 100%" placeholder="Dirección"></textarea>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkboxTienda" type="checkbox" checked>Deseo Comprar los productos directamente en las tiendas de 4LIFE.
+                        </div>
+                        <div class="checkbox checkbox-success">
+                            <input id="checkboxDelivery" type="checkbox">Deseo Usar el Servicio de Delivery Gratuito.
+                        </div>
+                        <div class="checkbox checkbox-success">
+                            <input id="checkboxDistribuidor" type="checkbox">Deseo recibir información de 4Life para ser distribuidor autorizado.
+                        </div>
+                        <label for="mensaje">Consulta o Duda</label>
+                        <textarea class="form-control" name="mensaje" rows="4" id="mensaje" style="min-width: 100%" placeholder="Ingrese su duda o mensaje al vendedor"></textarea>
+                        <br>
+                        <input class="btn btn-primary" type="submit" name="enviar" tabindex="7" value="Enviar"><input type="reset" tabindex="8" class="btn btn-primary" value="Borrar">
+                        <input type="hidden" name="estado" value="1">
+                        
+                        <input class="btn btn-primary" data-toggle="modal" data-target="#myModal" type="button" name="enviar" tabindex="7" value="Envia2r"><input type="reset" tabindex="8" class="btn btn-primary" value="Borrar">
+                        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+                    </form>
+                </div>
+
+            </div>
+
+
+            <script>
+
+
+                $('#thankyouModal').submit(function(e) {
+                    e.preventDefault(); // don't submit multiple times
+                    this.submit(); // use the native submit method of the form element
+                    $('#thankyouModal').modal('show'); //Open the model
+                });
+            </script>
+
+        </body>
+    </html>
