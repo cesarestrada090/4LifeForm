@@ -30,7 +30,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title" style="color:green;">Solicitud Realizada Exitosamente</h4>
+                            <h4 class="modal-title" style="color:green; text-align: center;">Solicitud Realizada Exitosamente</h4>
                         </div>
                         <div class="modal-body">
                             <p  style="text-align: justify;" >Hemos enviado la información a la central, en unos minutos llegará tu código de cliente a tu correo con el que podras comprar en nuestros más de 10 locales autorizados en todo el Perú, en caso hayas solicitado ser distribuidor te llegará un correo adicional.</p>
@@ -49,22 +49,22 @@
 
             <div class="container">
                 <div class="page-header">
-                    <h2 >¿Deseas ser uno de nuestros clientes?<br/> Completa el siguiente formulario para obtener tu código de comprador.</h23>
+                    <h2 style="text-align: center;">¿Deseas ser uno de nuestros clientes?<br/> Completa el siguiente formulario para obtener tu código de comprador.</h23>
                 </div>
                 <div id="formulario">
                     <form class="form-horizontal" role="form" action="php/contacto.php" method="POST" id="contacto" title="Nombre">
                         <label for="nombre">Nombre Completo</label>
                         <input class="form-control" value="aa" name="nombre" type="text" required="required" id="nombre" placeholder="nombre" tabindex="1" title="Nombre">
-                        <br>
+  
                         <label for="email">Email(opcional)</label>
                         <input class="form-control" value="aa@ss.com" name="email" type="email" required="required" id="email" placeholder="email" tabindex="2" title="Email">
-                        <br>
+         
                         <label for="telefono">Teléfono</label>
                         <input class="form-control" name="telefono" value="aa" type="text" id="telefono" placeholder="telefono" tabindex="3" title="Telefono">
-                        <br>
+                    
                         <label for="ciudad">Ciudad</label>
                         <input class="form-control" name="ciudad" value="aa" type="text" id="ciudad" placeholder="ciudad" tabindex="4" title="ciudad">
-                        <br>
+                  
                         <label for="direccion">Dirección Para Delivery(Opcional)</label>
                         <textarea class="form-control" name="direccion"  rows="2" id="direccion" style="min-width: 100%" placeholder="Dirección"></textarea>
                         <div class="checkbox checkbox-primary">
@@ -79,9 +79,10 @@
                         <label for="mensaje">Consulta o Duda</label>
                         <textarea class="form-control" name="mensaje" rows="4" id="mensaje" style="min-width: 100%" placeholder="Ingrese su duda o mensaje al vendedor"></textarea>
                         <br>
-                        <input type="reset" tabindex="8" class="btn btn-primary" value="Borrar">
+                        <input class="btn btn-primary" data-toggle="modal" data-target="#myModal" type="submit" name="enviar" tabindex="7" value="Enviar"><input type="reset" tabindex="8" class="btn btn-primary" value="Borrar">
 
-                        <input class="btn btn-primary" data-toggle="modal" data-target="#myModal" type="submit" name="enviar" tabindex="7" value="Envia2r"><input type="reset" tabindex="8" class="btn btn-primary" value="Borrar">
+
+                        
 
 
                     </form>
@@ -107,7 +108,7 @@
                     var checkboxDistribuidor = $("#checkboxDistribuidor").val();
                     $.ajax({
                         type: "POST",
-                        url: "php/form-process.php",
+                        url: "php/contacto.php",
                         data: "name=" + nombre + "&email=" + email + "&telefono=" + telefono+ "&ciudad=" + ciudad + "&mensaje=" + mensaje+ "&direccion=" + direccion + "&checkboxTienda=" + checkboxTienda+ "&checkboxDelivery=" + checkboxDelivery + "&checkboxDistribuidor=" + checkboxDistribuidor,
                         success: function(text) {
                             if (text == "success") {
